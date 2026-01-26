@@ -1,0 +1,30 @@
+{
+  "name": "Portfolio Personnel Interactif",
+  "version": "1.0.0",
+  "description": "Un template web moderne pour portfolio personnel avec Tailwind CSS, Daisy UI et animations fluides",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'No build needed - static files only'",
+    "preview": "python -m http.server 5000"
+  },
+  "keywords": [
+    "portfolio",
+    "template",
+    "tailwind",
+    "daisy-ui",
+    "responsive",
+    "seo",
+    "animations"
+  ],
+  "author": "Votre Nom",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
+}

@@ -1,0 +1,488 @@
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* Blob Animation */
+@keyframes blob {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.3);
+}
+
+/* Smooth Scroll */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glow Effect */
+.glow {
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+}
+
+/* ============================================
+   CARD ANIMATIONS
+   ============================================ */
+
+.card {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.project-card .card:hover {
+    border-color: currentColor;
+}
+
+/* ============================================
+   FILTER BUTTONS
+   ============================================ */
+
+.filter-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+
+.project-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+/* ============================================
+   FORM STYLING
+   ============================================ */
+
+.input,
+.textarea {
+    transition: all 0.3s ease;
+    background-color: rgba(15, 23, 42, 0.5);
+    border-color: rgba(100, 116, 139, 0.3);
+}
+
+.input:focus,
+.textarea:focus {
+    background-color: rgba(15, 23, 42, 0.7);
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+
+.progress {
+    background-color: rgba(100, 116, 139, 0.3);
+}
+
+.progress::-webkit-progress-bar {
+    background-color: rgba(100, 116, 139, 0.3);
+}
+
+.progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.5s ease;
+}
+
+.progress-primary::-moz-progress-bar {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* ============================================
+   RESPONSIVE TWEAKS
+   ============================================ */
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+
+    .text-7xl {
+        font-size: 3rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #764ba2, #667eea);
+}
+
+/* ============================================
+   BACKDROP BLUR SUPPORT
+   ============================================ */
+
+@supports (backdrop-filter: blur(1px)) {
+    .backdrop-blur-md {
+        backdrop-filter: blur(12px);
+    }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .backdrop-blur-md {
+        background-color: rgba(15, 23, 42, 0.8);
+    }
+}
+
+/* ============================================
+   ANIMATIONS FOR AOS
+   ============================================ */
+
+[data-aos] {
+    transition-property: opacity, transform;
+}
+
+.aos-animate {
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   PULSE ANIMATION
+   ============================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================
+   BUTTON EFFECTS
+   ============================================ */
+
+.btn {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+    border: 1.5px solid;
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+    border-color: #667eea;
+    color: #667eea;
+}
+
+/* ============================================
+   BADGE STYLING
+   ============================================ */
+
+.badge {
+    animation: slideInUp 0.5s ease-out backwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   MODAL ANIMATIONS
+   ============================================ */
+
+.modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-box {
+    animation: slideInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ============================================
+   NAVBAR EFFECTS
+   ============================================ */
+
+.navbar {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TYPING EFFECT
+   ============================================ */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 49%, 100% {
+        border-right-color: transparent;
+    }
+    50%, 99% {
+        border-right-color: #667eea;
+    }
+}
+
+.typing {
+    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ============================================
+   GRADIENT ANIMATION
+   ============================================ */
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton {
+    animation: skeleton-loading 2s infinite;
+    background: linear-gradient(
+        90deg,
+        rgba(100, 116, 139, 0.3) 25%,
+        rgba(100, 116, 139, 0.5) 50%,
+        rgba(100, 116, 139, 0.3) 75%
+    );
+    background-size: 1000px 100%;
+}
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+
+.glass-effect {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-primary {
+    background: linear-gradient(to right, rgb(168, 85, 247), rgb(6, 182, 212));
+}
+
+.gradient-secondary {
+    background: linear-gradient(to right, rgb(236, 72, 153), rgb(168, 85, 247));
+}
+
+.text-shadow-lg {
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-3000 {
+    animation-delay: 3s;
+}

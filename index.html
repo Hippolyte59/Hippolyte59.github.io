@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de templates et UI kits par Hippolyte">
+    <meta name="theme-color" content="#22d3ee">
+    <title>Hippolyte | Templates + UI Kits</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Inter', 'Segoe UI', 'sans-serif'],
+                        body: ['Inter', 'Segoe UI', 'sans-serif']
+                    },
+                    colors: {
+                        ocean: '#0ea5e9',
+                        coral: '#f97316',
+                        purple: '#a855f7',
+                        night: '#050d1a'
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SzlrxWriC3zEP+4kjvJd2P6v5Q1p2hN9I8a2JwW8Z3zDkzY2R5p5QJgL6NwD0nM4xF2JcJyW2onjCwPp3vYpHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideOutDown {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(20px); opacity: 0; }
+        }
+        @keyframes glow-pulse {
+            0%, 100% { text-shadow: 0 0 8px rgba(14, 165, 233, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(14, 165, 233, 0.6); }
+        }
+        .glow-text { animation: glow-pulse 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="min-h-screen bg-base-100 text-base-content relative overflow-x-hidden">
+    <div class="blur-blob blob-1"></div>
+    <div class="blur-blob blob-2"></div>
+
+    <header class="sticky top-0 z-30 backdrop-blur border-b border-base-200/60 bg-base-100/80">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <a href="#accueil" class="flex items-center gap-3 font-display text-lg font-semibold">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean to-coral grid place-items-center text-base-100 shadow-lg">&lt;/&gt;</span>
+                <span>Hippolyte · Dev</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#projets" class="nav-link">Templates</a>
+                <a href="#features" class="nav-link">Atouts</a>
+                <a href="#experience" class="nav-link">Parcours</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" class="btn btn-sm btn-ghost rounded-full" title="Changer le thème">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4">
+        <section id="accueil" class="pt-12 md:pt-20 pb-10 md:pb-16">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <span class="badge badge-outline border-coral text-coral bg-coral/10">Templates + UI Kits</span>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-semibold leading-tight glow-text">
+                        Des interfaces nettes, rapides et prêtes à livrer pour vos projets web.
+                    </h1>
+                    <p class="text-base md:text-lg text-base-content/70 max-w-xl">
+                        10 modèles triés sur le volet, animations fluides, dark mode natif et une base Tailwind + DaisyUI pour shipper vite.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#projets" class="btn btn-primary shadow-lg shadow-ocean/30">Voir les templates</a>
+                        <a href="https://github.com/Hippolyte59" target="_blank" rel="noreferrer" class="btn btn-ghost border-base-300">Profil GitHub</a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 max-w-lg">
+                        <div class="stat-tile">
+                            <p class="stat-label">Templates</p>
+                            <p class="stat-number" id="templateCount">12</p>
+                        </div>
+                        <div class="stat-tile">
+                            <p class="stat-label">Perf score</p>
+                            <p class="stat-number">90+</p>
+                        </div>
+                        <div class="stat-tile">
+                            <p class="stat-label">Prêts en</p>
+                            <p class="stat-number">10 min</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="glass-card p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-10 rounded-full bg-ocean/15 grid place-items-center text-ocean"><i class="fa-solid fa-bolt"></i></span>
+                            <div>
+                                <p class="text-sm text-base-content/70">Stack</p>
+                                <p class="font-semibold">Tailwind + DaisyUI</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <p class="text-sm text-base-content/70">Focus</p>
+                                <p class="font-semibold">UX, accessibilité, vitesse</p>
+                            </div>
+                            <span class="badge badge-primary">2026</span>
+                        </div>
+                        <div class="h-2 w-full rounded-full bg-base-200 overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-ocean to-coral w-11/12"></div>
+                        </div>
+                        <p class="mt-4 text-sm text-base-content/60">Déjà optimisé : responsive, thèmes, composants prêts.</p>
+                    </div>
+                    <div class="stickman" aria-hidden="true">
+                        <svg viewBox="0 0 200 240" class="w-full h-full" role="presentation">
+                            <circle cx="100" cy="50" r="26" class="stick-head" />
+                            <line x1="100" y1="76" x2="100" y2="150" class="stick-line" />
+                            <line x1="100" y1="100" x2="60" y2="130" class="stick-line" />
+                            <line x1="100" y1="100" x2="140" y2="130" class="stick-line" />
+                            <line x1="100" y1="150" x2="70" y2="210" class="stick-line" />
+                            <line x1="100" y1="150" x2="130" y2="210" class="stick-line" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="py-12 md:py-16">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div>
+                    <p class="text-sm text-base-content/60 uppercase tracking-[0.2em]">Templates</p>
+                    <h2 class="text-2xl md:text-3xl font-display font-semibold">Sélection prête à l'emploi</h2>
+                    <p class="text-base text-base-content/65">Filtres par type, previews et liens démo.</p>
+                </div>
+                <div class="flex flex-wrap gap-2" id="filters">
+                    <button class="btn btn-xs md:btn-sm btn-active" data-filter="all">Tous</button>
+                    <button class="btn btn-xs md:btn-sm btn-outline btn-warning hover:bg-orange-500" data-filter="landing">Landing</button>
+                    <button class="btn btn-xs md:btn-sm btn-outline btn-info hover:bg-blue-500" data-filter="dashboard">Dashboard</button>
+                    <button class="btn btn-xs md:btn-sm btn-outline btn-success hover:bg-emerald-500" data-filter="ecommerce">E-commerce</button>
+                    <button class="btn btn-xs md:btn-sm btn-outline btn-error hover:bg-pink-500" data-filter="portfolio">Portfolio</button>
+                    <button class="btn btn-xs md:btn-sm btn-outline btn-primary hover:bg-purple-500" data-filter="hosting">Hosting</button>
+                </div>
+            </div>
+            <div id="templatesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"></div>
+        </section>
+
+        <section id="features" class="py-12 md:py-16">
+            <div class="section-heading">
+                <p class="eyebrow">Atouts</p>
+                <h2 class="section-title">Pensé pour livrer vite</h2>
+                <p class="section-sub">Composants DaisyUI, animations légères, contenu clair.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="feature-card">
+                    <i class="fa-solid fa-gauge-high text-ocean text-xl"></i>
+                    <h3>Performance</h3>
+                    <p>Images compressées, structure SEO, bundle léger.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-swatchbook text-coral text-xl"></i>
+                    <h3>Design cohérent</h3>
+                    <p>Palette soignée, typographie lisible, spacing régulier.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-mobile-screen text-ocean text-xl"></i>
+                    <h3>Responsive natif</h3>
+                    <p>Grilles fluides, touch friendly, dark/light géré.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-12 md:py-16">
+            <div class="section-heading">
+                <p class="eyebrow">Parcours</p>
+                <h2 class="section-title">Quelques repères</h2>
+                <p class="section-sub">Freelance et produits web centrés utilisateurs.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="badge badge-primary">2020 → Aujourd'hui</span>
+                        <p class="font-semibold">Créateur de templates web</p>
+                    </div>
+                    <p class="text-base-content/70">50+ modèles produits, doc incluse, support dev.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="badge badge-secondary">2018 → 2020</span>
+                        <p class="font-semibold">Développeur Full Stack</p>
+                    </div>
+                    <p class="text-base-content/70">Dashboards, e-commerce headless, APIs Node.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="badge badge-ghost">2016 → 2018</span>
+                        <p class="font-semibold">Web junior</p>
+                    </div>
+                    <p class="text-base-content/70">Bases solides en front, accessibilité et perf.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 md:py-16">
+            <div class="section-heading text-center">
+                <p class="eyebrow">Contact</p>
+                <h2 class="section-title">Parlons de votre projet</h2>
+                <p class="section-sub">Une idée ? Un besoin d'intégration rapide ?</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <form id="contactForm" class="card bg-base-100 border border-base-200 shadow-lg rounded-xl overflow-hidden p-6 space-y-4">
+                    <div>
+                        <label class="label" for="name"><span class="label-text">Nom complet</span></label>
+                        <input id="name" type="text" required class="input input-bordered w-full" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="label" for="email"><span class="label-text">Email</span></label>
+                        <input id="email" type="email" required class="input input-bordered w-full" placeholder="jane@mail.com">
+                    </div>
+                    <div>
+                        <label class="label" for="subject"><span class="label-text">Sujet</span></label>
+                        <input id="subject" type="text" required class="input input-bordered w-full" placeholder="Template, intégration...">
+                    </div>
+                    <div>
+                        <label class="label" for="message"><span class="label-text">Message</span></label>
+                        <textarea id="message" rows="4" required class="textarea textarea-bordered w-full" placeholder="Dites-en plus..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Envoyer</button>
+                </form>
+                <div class="card bg-base-100 border border-base-200 shadow-lg rounded-xl overflow-hidden p-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-ocean/15 text-ocean grid place-items-center"><i class="fa-solid fa-envelope"></i></span>
+                        <div>
+                            <p class="text-sm text-base-content/60">Email</p>
+                            <p class="font-semibold">hippolyte@zorcraft.ovh</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-coral/15 text-coral grid place-items-center"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <p class="text-sm text-base-content/60">Basé à</p>
+                            <p class="font-semibold">Paris, France</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-purple/15 text-purple grid place-items-center"><i class="fa-solid fa-laptop-code"></i></span>
+                        <div>
+                            <p class="text-sm text-base-content/60">Spécialité</p>
+                            <p class="font-semibold">Dev Full Stack Web</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-base-200 text-base-content grid place-items-center"><i class="fa-solid fa-briefcase"></i></span>
+                        <div>
+                            <p class="text-sm text-base-content/60">Dispo</p>
+                            <p class="font-semibold">Projets freelance ouverts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-base-200 bg-base-100/90">
+        <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
+            <p class="text-sm text-base-content/70"><span id="copyright">© 2025 Hippolyte</span>. Templates & UI Kits.</p>
+            <div class="flex items-center gap-3">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
